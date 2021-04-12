@@ -13,5 +13,28 @@ public class CustomButtonOptionPanes {
 		
 		//use a switch statement to do something cool for each option
 		
+		switch (input) {
+		case 0:
+			JOptionPane.showMessageDialog(null, "Enjoy your last few hours of freedom");
+			break;
+		case 1:
+			JOptionPane.showMessageDialog(null, "Heh. Good luck with today, you're gonna need it");
+			break;
+		case 2:
+			JOptionPane.showMessageDialog(null, "'Tis an Elevate night");
+			break;
+		case 3:
+			JOptionPane.showMessageDialog(null, "'Tis a Thrive night");
+			break;
+		case 4:
+			JOptionPane.showMessageDialog(null, "Did she actually pick up the phone today??");
+			break;
+		case 5:
+			JOptionPane.showMessageDialog(null, "ITS FRIDAY :D");
+			break;
+		case 6:
+			JOptionPane.showMessageDialog(null, "Time to discover how intense your art block is");
+			break;
+		}
 	}
 }
