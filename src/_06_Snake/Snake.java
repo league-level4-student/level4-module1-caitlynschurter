@@ -19,8 +19,9 @@ public class Snake {
 		snake = new ArrayList<SnakeSegment>();
 		head = new SnakeSegment(location, BODY_SIZE);
 		snake.add(head);
-
+		
 		currentDirection = Direction.RIGHT;
+		/**used for reset^**/
 	}
 
 	public void feed() {
@@ -59,11 +60,13 @@ public class Snake {
 
 	public void reset(Location loc) {
 		//1. clear the snake
+		snake.clear();
 		
 		//2. set the location of the head
+		head.setLocation(loc);
 		
 		//3. add the head to the snake
-		
+		snake.add(head);
 	}
 
 	public boolean isOutOfBounds() {
