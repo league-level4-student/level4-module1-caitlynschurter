@@ -38,23 +38,27 @@ public class Snake {
 		// 1. use a switch statement to check on the currentDirection
 		// of the snake and calculate its next x and y position.
 
-		/** Still not done **/
 		Location head = getHeadLocation();
+		Location newloc = null;
 		switch (currentDirection) {
 		case RIGHT:
-			head.x ++;
-			
+			newloc = new Location(getHeadLocation().x + 1, getHeadLocation().y);
+			// head.x ++;
+
 			break;
 		case LEFT:
-			head.x --;
-			
+			newloc = new Location(getHeadLocation().x - 1, getHeadLocation().y);
+			// head.x --;
+
 			break;
 		case UP:
-			head.y --;
+			newloc = new Location(getHeadLocation().x, getHeadLocation().y - 1);
+			// head.y --;
 
 			break;
 		case DOWN:
-			head.y ++;
+			newloc = new Location(getHeadLocation().x, getHeadLocation().y + 1);
+			// head.y ++;
 
 			break;
 		}
@@ -62,11 +66,12 @@ public class Snake {
 		// 2. Iterate through the SnakeSegments in reverse order
 		// 2a. Update each snake segment to the location of the segment
 		// in front of it.
-		for(int i = snake.size()-1; i >= 0; i--) {
-			snake.get(i).setLocation(snake.get(i-1).getLocation());
+		for (int i = snake.size() - 1; i >= 0; i--) {
+			snake.get(i).setLocation(snake.get(i - 1).getLocation());
 		}
 		// 3. set the location of the head to the new location calculated in step 1
-		
+		snake.get(0).setLocation(head);
+
 		// 4. set canMove to true
 		canMove = true;
 	}
@@ -139,14 +144,22 @@ public class Snake {
 	public boolean isHeadCollidingWithBody() {
 		// 1. complete the method so it returns true if the head is located
 		// in the same location as any other body segment
-
+		for (int i = 0; i < snake.size() - 1; i++) {
+			if (head.getLocation() == snake.get(i).getLocation()) {
+				return true;
+			}
+		}
 		return false;
 	}
 
 	public boolean isLocationOnSnake(Location loc) {
 		// 1. complete the method so it returns true if the passed in
 		// location is located on the snake
-
+		for (int i = 0; i < snake.size() - 1; i++) {
+			if (loc == snake.get(i).getLocation()) {
+				return true;
+			}
+		}
 		return false;
 	}
 
